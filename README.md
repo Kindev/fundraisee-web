@@ -9,11 +9,13 @@
 ```
 git clone https://github.com/Kindev/fundraisee-web.git
 cd fundraisee-web
+yarn
+yarn start
 ```
 
-### `yarn install`
+Install [Redux DevTools Extension - Chrome Web Store](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 
-Install the required dependencies defined in package.json
+## Available Scripts
 
 ### `yarn start`
 
@@ -22,6 +24,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
+
+### `yarn flow`
+
+Run `flow` - static type checker for JavaScript. Learn it [here](https://flow.org/)
 
 ### `yarn prettier`
 

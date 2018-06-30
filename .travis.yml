@@ -5,5 +5,7 @@ node_js:
 install:
 - yarn install --frozen-lockfile
 script:
+- yarn prettier:diff
 - yarn test
+- yarn flow
 - yarn run build
