@@ -1,10 +1,10 @@
 // @flow
 import type {Action, ThunkAction} from './types';
-import type {loginParam} from '../api/user';
+import type {LoginParam} from '../api/user';
 import {loginApi, logoutApi} from '../api';
 import {apiErrorHandler} from '../utils/error';
 
-export const login = (param: loginParam): ThunkAction => dispatch => {
+export const login = (param: LoginParam): ThunkAction => dispatch => {
   dispatch(loginRequest());
 
   loginApi(param)

@@ -7,12 +7,12 @@ import {
 } from '../api/constants';
 import {getConfig} from '../utils/config';
 
-export type loginParam = {
+export type LoginParam = {
   username: string,
   password: string
 };
 
-export const loginApi = (param: loginParam): Promise<any> => {
+export const loginApi = (param: LoginParam): Promise<any> => {
   return axios.post(USER_LOGIN_URL, param, getConfig());
 };
 
@@ -20,13 +20,13 @@ export const logoutApi = (): Promise<any> => {
   return axios.post(USER_LOGOUT_URL, null, getConfig());
 };
 
-export type registerParam = {
+export type RegisterParam = {
   username: string,
   name: string,
   password: string,
   email: string
 };
 
-export const registerApi = (param: registerParam) => {
+export const registerApi = (param: RegisterParam) => {
   return axios.post(USER_REGISTER_URL, param, getConfig());
 };

@@ -1,10 +1,10 @@
 // @flow
 import type {Action, ThunkAction} from './types';
 import {registerApi} from '../api';
-import type {registerParam} from '../api/user';
+import type {RegisterParam} from '../api/user';
 import {apiErrorHandler} from '../utils/error';
 
-export const register = (param: registerParam): ThunkAction => dispatch => {
+export const register = (param: RegisterParam): ThunkAction => dispatch => {
   dispatch(registerRequest());
 
   registerApi(param)

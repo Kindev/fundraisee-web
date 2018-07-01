@@ -27,6 +27,11 @@ const register = (state: State = initialState, action: Action): State => {
         isLoading: false,
         error: action.error
       };
+    case 'HIDE_MODAL':
+      return {
+        ...state,
+        error: null
+      };
     default:
       return state;
   }

@@ -27,7 +27,6 @@
   },
   "lint-staged": {
     "src/**/*.js": [
-      "yarn flow",
       "yarn prettier",
       "git add"
     ]

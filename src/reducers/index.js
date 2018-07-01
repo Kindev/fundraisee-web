@@ -4,10 +4,14 @@ import auth from './auth';
 import register from './register';
 import modal from './modal';
 
-const rootReducer = combineReducers({
+const reducers = {
   auth,
   register,
   modal
-});
+};
 
-export default rootReducer;
+// generate the flow types for our state from our reducers
+type $ExtractFunctionReturn = <V>(v: (...args: any) => V) => V;
+export type State = $ObjMap<typeof reducers, $ExtractFunctionReturn>;
+
+export default combineReducers(reducers);
