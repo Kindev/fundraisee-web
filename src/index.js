@@ -16,7 +16,8 @@ const App = () => (
         <div>
           <AppBar />
           <Switch>
-            <Route exact path="/" component={Loader} />
+            <Route path="/test" component={Loader} />
+            <Route exact path="/" component={null} />
           </Switch>
           <Modal />
         </div>
