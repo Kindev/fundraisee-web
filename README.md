@@ -27,7 +27,7 @@ You will also see any lint errors in the console.
 
 ### `yarn flow`
 
-Run `flow` - static type checker for JavaScript. Learn it [here](https://flow.org/)
+Run `flow` - static type checker for JavaScript. Learn [Flow](https://flow.org/) and [Flow-React](https://flow.org/en/docs/react/)
 
 ### `yarn prettier`
 
@@ -44,13 +44,17 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 ## Folder Structure
 
-We follow common React-Redux code pattern. Separate folders for “actions”, “constants”, “reducers”, “containers”, and “components”. Note that "components" are dumb and should not be aware of Redux, try to read https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0 (creator of Redux)
-
 ```
 fundraisee-web/
   src/
     actions/
-    constants/
+      index.js
+      types.js
+      action1.js
+    api/
+      index.js
+      api1.js
+      constants.js
     components/
       MyComponent/
         index.js
@@ -60,6 +64,8 @@ fundraisee-web/
         index.js
         styles.css
     reducers/
+      index.js
+      reducer1.js
     index.js
   ...
 ```
