@@ -23,7 +23,8 @@ const styles = theme => ({
   },
   dialogPaper: {
     minHeight: 350,
-    paddingTop: theme.spacing.unit
+    paddingTop: theme.spacing.unit,
+    overflowX: 'hidden'
   }
 });
 
@@ -148,12 +149,16 @@ class LoginModal extends React.Component<Props, State> {
             <Divider className={classes.divider} />
           </Grid>
           <Grid item>
-            <Button
-              disabled={isLoading}
-              onClick={showRegister}
-              label={'Register'}
-              variant="outlined"
-            />
+            <Typography variant="caption">
+              No account ?
+              <Button
+                size="small"
+                color="primary"
+                disabled={isLoading}
+                onClick={showRegister}
+                label={'Register'}
+              />
+            </Typography>
           </Grid>
         </Grid>
       </Dialog>
