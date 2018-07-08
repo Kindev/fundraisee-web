@@ -17,19 +17,18 @@ const styles = theme => ({
     width: 170,
     margin: theme.spacing.unit
   },
+  button: {
+    margin: 0.5 * theme.spacing.unit
+  },
   divider: {
     margin: theme.spacing.unit,
     width: 230
   },
   dialogPaper: {
-    minHeight: 350,
+    minHeight: 340,
+    width: 400,
     paddingTop: 3 * theme.spacing.unit,
     overflowX: 'hidden'
-  },
-  '@media (min-width: 900)': {
-    dialogPaper: {
-      width: 900
-    }
   }
 });
 
@@ -147,6 +146,7 @@ class LoginModal extends React.Component<Props, State> {
               disabled={isLoading}
               onClick={this.handleSubmit}
               label="Login"
+              className={classes.button}
             />
           </Grid>
           <Grid item>
