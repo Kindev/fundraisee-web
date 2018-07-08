@@ -14,17 +14,22 @@ import type {LoginParam} from '../../api/user';
 
 const styles = theme => ({
   input: {
-    width: 150,
+    width: 170,
     margin: theme.spacing.unit
   },
   divider: {
     margin: theme.spacing.unit,
-    width: 200
+    width: 230
   },
   dialogPaper: {
     minHeight: 350,
-    paddingTop: theme.spacing.unit,
+    paddingTop: 3 * theme.spacing.unit,
     overflowX: 'hidden'
+  },
+  '@media (min-width: 900)': {
+    dialogPaper: {
+      width: 900
+    }
   }
 });
 
@@ -85,11 +90,10 @@ class LoginModal extends React.Component<Props, State> {
         open={true}
         classes={{paper: classes.dialogPaper}}
         fullWidth
-        maxWidth="md"
         onClose={handleClose}>
         <Grid container direction="column" alignItems="center" spacing={8}>
           <Grid item>
-            <Typography align="center" variant="headline">
+            <Typography color="inherit" align="center" variant="display1">
               Welcome back.
             </Typography>
           </Grid>
