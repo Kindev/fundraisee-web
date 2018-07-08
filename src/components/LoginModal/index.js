@@ -4,21 +4,33 @@ import {withStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
+import Account from '@material-ui/icons/AccountCircle';
+import Lock from '@material-ui/icons/Lock';
 import Button from '../Button';
 
 import type {LoginParam} from '../../api/user';
 
-const styles = {
-  margin: {
-    marginLeft: 10,
-    marginRight: 10,
-    marginBottom: 5,
-    width: 200
+const styles = theme => ({
+  input: {
+    width: 170,
+    margin: theme.spacing.unit
+  },
+  button: {
+    margin: 0.5 * theme.spacing.unit
+  },
+  divider: {
+    margin: theme.spacing.unit,
+    width: 230
+  },
+  dialogPaper: {
+    minHeight: 340,
+    width: 400,
+    paddingTop: 3 * theme.spacing.unit,
+    overflowX: 'hidden'
   }
-};
+});
 
 type Props = {
   classes: Object,
@@ -56,7 +68,7 @@ class LoginModal extends React.Component<Props, State> {
   };
 
   handleSubmit = (e: SyntheticEvent<HTMLButtonElement>) => {
-    let loginParam: LoginParam = {
+    const loginParam: LoginParam = {
       username: this.state.username,
       password: this.state.password
     };
@@ -74,52 +86,85 @@ class LoginModal extends React.Component<Props, State> {
     } = this.props;
     return isAuthenticated ? null : (
       <Dialog
-        open={true}
-        onClose={handleClose}
-        aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Login</DialogTitle>
-        <DialogContent>
-          {error && (
-            <Typography color="error">
-              {error || 'An error has occured'}
+        open
+        classes={{paper: classes.dialogPaper}}
+        fullWidth
+        onClose={handleClose}>
+        <Grid container direction="column" alignItems="center" spacing={8}>
+          <Grid item>
+            <Typography color="inherit" align="center" variant="display1">
+              Welcome back.
             </Typography>
-          )}
-          <TextField
-            required
-            margin="dense"
-            label="Username"
-            placeholder="Username"
-            value={this.state.username}
-            onChange={this.handleChange('username')}
-            className={classes.margin}
-          />
-          <br />
-          <TextField
-            required
-            type="password"
-            label="Password"
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.handleChange('password')}
-            className={classes.margin}
-          />
-          <br />
-          <br />
-          <DialogActions>
-            <Button
-              disabled={isLoading}
-              onClick={showRegister}
-              label={'Register here'}
-            />
+          </Grid>
+          <Grid item>
+            {error && (
+              <Typography color="error" align="center">
+                {error || 'An error has occured'}
+              </Typography>
+            )}
+          </Grid>
+          <Grid item>
+            <Grid container spacing={8} alignItems="flex-end">
+              <Grid item>
+                <Account />
+              </Grid>
+              <Grid item>
+                <TextField
+                  required
+                  margin="dense"
+                  label="Username"
+                  placeholder="Username"
+                  value={this.state.username}
+                  className={classes.input}
+                  onChange={this.handleChange('username')}
+                />
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item>
+            <Grid container spacing={8} alignItems="flex-end">
+              <Grid item>
+                <Lock />
+              </Grid>
+              <Grid item>
+                <TextField
+                  required
+                  type="password"
+                  label="Password"
+                  placeholder="Password"
+                  value={this.state.password}
+                  className={classes.input}
+                  onChange={this.handleChange('password')}
+                />
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item>
             <Button
               variant="contained"
               isLoading={isLoading}
               disabled={isLoading}
               onClick={this.handleSubmit}
-              label={'Login'}
+              label="Login"
+              className={classes.button}
             />
-          </DialogActions>
-        </DialogContent>
+          </Grid>
+          <Grid item>
+            <Divider className={classes.divider} />
+          </Grid>
+          <Grid item>
+            <Typography variant="caption">
+              No account ?
+              <Button
+                size="small"
+                color="primary"
+                disabled={isLoading}
+                onClick={showRegister}
+                label="Register"
+              />
+            </Typography>
+          </Grid>
+        </Grid>
       </Dialog>
     );
   }
