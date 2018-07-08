@@ -100,7 +100,7 @@ class LoginModal extends React.Component<Props, State> {
           <Grid item>
             {error && (
               <Typography color="error" align="center">
-                An error has occured
+                {error || 'An error has occured'}
               </Typography>
             )}
           </Grid>
