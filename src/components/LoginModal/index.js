@@ -69,7 +69,7 @@ class LoginModal extends React.Component<Props, State> {
   };
 
   handleSubmit = (e: SyntheticEvent<HTMLButtonElement>) => {
-    let loginParam: LoginParam = {
+    const loginParam: LoginParam = {
       username: this.state.username,
       password: this.state.password
     };
@@ -87,7 +87,7 @@ class LoginModal extends React.Component<Props, State> {
     } = this.props;
     return isAuthenticated ? null : (
       <Dialog
-        open={true}
+        open
         classes={{paper: classes.dialogPaper}}
         fullWidth
         onClose={handleClose}>
@@ -100,7 +100,7 @@ class LoginModal extends React.Component<Props, State> {
           <Grid item>
             {error && (
               <Typography color="error" align="center">
-                {error || 'An error has occured'}
+                An error has occured
               </Typography>
             )}
           </Grid>
@@ -146,7 +146,7 @@ class LoginModal extends React.Component<Props, State> {
               isLoading={isLoading}
               disabled={isLoading}
               onClick={this.handleSubmit}
-              label={'Login'}
+              label="Login"
             />
           </Grid>
           <Grid item>
@@ -160,7 +160,7 @@ class LoginModal extends React.Component<Props, State> {
                 color="primary"
                 disabled={isLoading}
                 onClick={showRegister}
-                label={'Register'}
+                label="Register"
               />
             </Typography>
           </Grid>
